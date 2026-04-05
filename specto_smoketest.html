@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>specto | unlock your performance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;1,700;1,800&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030303; color: #ffffff; overflow-x: hidden; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .red-gradient { background: linear-gradient(90deg, #a31223 0%, #7a0a1a 100%); }
+        .text-glow { text-shadow: 0 0 30px rgba(163, 18, 35, 0.4); }
+        
+        .text-alone-rosso {
+            text-shadow: 
+                0 0 8px rgba(163, 18, 35, 0.6),
+                0 0 15px rgba(163, 18, 35, 0.3);
+        }
+
+        .coming-soon {
+            font-size: 11px;
+            animation: blink 2s infinite ease-in-out;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        @keyframes growUp { from { height: 0%; } to { height: var(--final-height); } }
+        .bar-anim { animation: growUp 1.5s ease-out forwards; }
+        
+        .step-content { display: none; }
+        .step-content.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .loading-shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        
+        .logo-svg { filter: drop-shadow(0 0 8px rgba(163, 18, 35, 0.6)); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10" style="background: radial-gradient(circle at 50% 0%, rgba(163, 18, 35, 0.15) 0%, transparent 60%);"></div>
+
+    <a href="#iscrizione" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] sm:hidden px-6 py-4 rounded-full red-gradient text-white text-xs font-bold uppercase tracking-widest shadow-[0_10px_30px_rgba(163,18,35,0.5)] border border-white/10 active:scale-95 transition-all whitespace-nowrap">
+        Unisciti alla lista
+    </a>
+
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-white/5 bg-black/40">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-16 h-12 flex items-center justify-center">
+                    <svg version="1.1" viewBox="0 0 1024 544" class="logo-svg w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#a31223" stroke="none" d="M427.075195,200.050766 C417.569611,216.400696 412.235413,233.838211 408.627930,251.904297 C408.039246,254.852386 408.770569,256.933289 410.978058,258.978088 C455.013550,299.767670 481.328369,350.304993 493.490234,408.708038 C498.899445,434.683716 500.558197,460.756378 497.257050,487.123138 C496.809692,490.696106 495.933380,492.528564 491.660126,491.793274 C415.056793,478.611969 359.908234,437.195312 327.243042,366.530823 C314.629150,339.243256 308.529175,310.143616 309.065002,280.213013 C310.195465,217.065979 333.788849,163.690521 381.356079,121.478577 C408.468536,97.418549 439.831116,81.570198 475.167023,73.753281 C537.211487,60.027946 594.020142,72.665955 645.086853,109.755043 C691.612061,143.545593 719.964539,189.629868 728.765991,246.287857 C739.542114,315.657196 720.664795,376.777802 672.473145,428.407196 C662.805542,438.764435 653.494629,449.562256 642.052917,457.974274 C620.089478,474.121918 595.132874,483.600983 568.638550,489.292145 C564.411499,490.200165 560.072571,490.651764 555.908691,491.772369 C551.372620,492.993195 550.215088,491.247620 549.636169,486.959229 C547.396973,470.373566 548.721680,453.673859 547.657898,437.078644 C545.526978,403.833527 554.933044,373.287415 568.597351,343.685730 C583.572876,311.243347 603.840454,282.577118 630.390381,258.509003 C632.168030,256.897522 632.981445,255.146835 632.541382,252.777817 C626.150818,218.371948 612.487183,187.802521 584.521729,165.436523 C564.183533,149.170639 541.240234,139.215271 514.451355,141.337723 C498.040497,142.637924 483.030731,148.411957 469.037445,156.886734 C451.425903,167.552887 437.632843,181.988617 427.075195,200.050766 z"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="text-2xl font-extrabold tracking-tighter italic lowercase font-montserrat">specto</span>
+                    <span class="text-[9px] uppercase tracking-[0.15em] text-gray-500 font-bold">unlock your performance</span>
+                </div>
+            </div>
+            <a href="#iscrizione" class="text-[10px] font-bold py-2.5 px-6 rounded-full bg-white text-black hover:bg-[#a31223] hover:text-white transition-all uppercase tracking-widest shadow-lg hidden sm:block">Iscriviti alla lista di attesa</a>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-20 px-6 text-center">
+        <div class="coming-soon font-bold text-[#a31223] uppercase tracking-[0.4em] mb-4">coming soon</div>
+        <h1 class="text-5xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-[0.9] text-glow">
+            Riempi la tua sala.<br>
+            <span class="text-[#a31223] italic text-alone-rosso">Senza sforzo.</span>
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-20">
+            L'unica soluzione <strong>tutto-in-uno</strong> per organizzatori di eventi. Gestisci incassi, pubblicità e vendite da un unico pannello di controllo.
+        </p>
+
+        <div class="max-w-6xl mx-auto glass rounded-[3rem] p-4 md:p-8 border-white/10 shadow-2xl relative">
+            <div class="bg-black/40 rounded-[2rem] p-6 md:p-10 border border-white/5 text-left">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 border-b border-white/5 pb-12">
+                    <div class="border-b border-white/5 sm:border-0 pb-4 sm:pb-0">
+                        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-2">Incasso Totale</p>
+                        <p class="text-3xl font-bold italic">€48.250</p>
+                    </div>
+                    <div class="border-b border-white/5 sm:border-0 pb-4 sm:pb-0">
+                        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-2">Biglietti Venduti</p>
+                        <p class="text-3xl font-bold">1.420 <span class="text-sm text-gray-600 font-normal">/ 1.800</span></p>
+                    </div>
+                    <div class="border-b border-white/5 sm:border-0 pb-4 sm:pb-0">
+                        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-2">Ritorno spesa pubblicitaria</p>
+                        <p class="text-3xl font-bold text-[#a31223]">12.4x</p>
+                    </div>
+                    <div class="pb-4 sm:pb-0">
+                        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-2">Utile / Perdita</p>
+                        <p class="text-3xl font-bold text-green-500">+ €18.420</p>
+                    </div>
+                </div>
+
+                <div class="h-48 w-full flex items-end space-x-2 sm:space-x-3">
+                    <div class="flex-1 bg-white/5 rounded-t-lg bar-anim" style="--final-height: 30%"></div>
+                    <div class="flex-1 bg-white/5 rounded-t-lg bar-anim" style="--final-height: 45%; animation-delay: 0.1s"></div>
+                    <div class="flex-1 bg-white/5 rounded-t-lg bar-anim" style="--final-height: 60%; animation-delay: 0.3s"></div>
+                    <div class="flex-1 bg-[#a31223] rounded-t-lg bar-anim shadow-[0_0_20px_rgba(163,18,35,0.3)]" style="--final-height: 90%; animation-delay: 0.5s"></div>
+                    <div class="flex-1 bg-[#7a0a1a] rounded-t-lg bar-anim shadow-[0_0_30px_rgba(122,10,26,0.5)]" style="--final-height: 100%; animation-delay: 0.6s"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-white/5">
+        <div class="flex flex-col h-full">
+            <div class="text-2xl mb-6">📈</div>
+            <h3 class="text-xl font-bold mb-4 italic">Analisi Automatica</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                Carica i tuoi report (C1 o file di biglietteria) e guarda Specto trasformarli in grafici chiari. Sai sempre quanto stai incassando.
+            </p>
+            <div class="mt-auto glass-dark bg-black/40 rounded-2xl p-5 border border-white/5 h-56 flex flex-col justify-between">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Biglietti Venduti</span>
+                    <span class="text-[9px] bg-[#a31223]/20 text-[#a31223] px-2 py-0.5 rounded font-bold uppercase tracking-tighter italic">Report C1</span>
+                </div>
+                <div class="flex items-end space-x-2 h-20">
+                    <div class="flex-1 bg-white/10 h-1/2 rounded-t"></div>
+                    <div class="flex-1 bg-white/10 h-3/4 rounded-t"></div>
+                    <div class="flex-1 bg-[#a31223] h-full rounded-t"></div>
+                    <div class="flex-1 bg-white/10 h-2/3 rounded-t"></div>
+                </div>
+                <div class="pt-3 border-t border-white/5">
+                    <p class="text-[10px] text-gray-500 font-bold uppercase">Riempimento Sala</p>
+                    <p class="text-xl font-bold italic text-[#a31223]">82%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col h-full">
+            <div class="text-2xl mb-6">🚀</div>
+            <h3 class="text-xl font-bold mb-4 italic">Pubblicità Intelligente</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                Specto crea per te le pubblicità su Facebook e Instagram. Con un click genera, traccia e ottimizza campagne online efficaci e che portano risultati tangibili.
+            </p>
+            <div class="mt-auto glass-dark bg-black/40 rounded-2xl p-5 border border-white/5 h-56 flex flex-col justify-between relative overflow-hidden">
+                <div id="ad-content" class="space-y-3 transition-all duration-500">
+                    <div class="flex justify-between items-center">
+                        <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Generatore Campagne</span>
+                        <div class="flex space-x-1"><div class="w-1.5 h-1.5 rounded-full bg-[#a31223]"></div></div>
+                    </div>
+                    <div class="w-full h-12 border border-dashed border-white/10 rounded flex items-center justify-center">
+                        <span class="text-[8px] text-gray-600 italic">Trascina contenuti creativi...</span>
+                    </div>
+                    <button onclick="simulateAdGeneration(this)" class="w-full py-3 red-gradient rounded-lg text-[9px] font-bold uppercase tracking-widest transition-all">
+                        GENERA CAMPAGNA
+                    </button>
+                </div>
+                <div id="ad-success" class="absolute inset-0 bg-zinc-900 flex flex-col items-center justify-center p-5 opacity-0 pointer-events-none transition-all duration-500 translate-y-full">
+                    <div class="w-8 h-8 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center mb-3 text-xs font-bold">✓</div>
+                    <p class="text-[9px] font-bold uppercase text-gray-500 mb-1">Ritorno spesa pubblicitaria</p>
+                    <p class="text-3xl font-bold text-[#a31223] italic tracking-tighter">12.4x</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col h-full">
+            <div class="text-2xl mb-6">📲</div>
+            <h3 class="text-xl font-bold mb-4 italic">Pagine di Vendita</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                Non hai un sito web? Specto genera pagine bellissime e veloci per il tuo evento, ottimizzate per chi compra da smartphone.
+            </p>
+            <div class="mt-auto glass-dark bg-black/40 rounded-2xl p-5 border border-white/5 h-56 flex justify-center items-end">
+                <div class="w-32 h-44 bg-zinc-900 border-2 border-white/10 rounded-t-2xl relative p-3 overflow-hidden shadow-2xl">
+                    <div class="w-10 h-1 bg-white/20 mx-auto rounded-full mb-4"></div>
+                    <div class="w-full h-16 bg-white/5 rounded-lg mb-3"></div>
+                    <div class="h-2 w-full bg-white/10 rounded-full mb-1.5"></div>
+                    <div class="h-2 w-2/3 bg-white/10 rounded-full mb-8"></div>
+                    <div class="w-full py-2.5 bg-[#a31223] rounded-lg text-[8px] font-bold text-center uppercase tracking-tighter">Acquista Biglietti</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="iscrizione" class="max-w-4xl mx-auto px-6 pt-16 pb-40">
+        <div class="glass rounded-[3rem] p-10 md:p-20 border-[#a31223]/20 text-center">
+            <div id="survey-box">
+                <div class="step-content active" id="step-1">
+                    <h3 class="text-3xl font-bold mb-6 italic text-glow uppercase tracking-tight">Iscriviti alla lista di attesa</h3>
+                    <p class="text-gray-400 mb-12 text-sm max-w-md mx-auto">Completa un breve questionario per iscriverti alla lista di attesa.</p>
+                    <p class="text-xs font-bold text-[#a31223] uppercase mb-4 tracking-widest">Passo 1 di 2</p>
+                    <h4 class="text-xl font-bold mb-8 italic">Qual è il problema tecnico che ti ruba più tempo?</h4>
+                    <div class="grid grid-cols-1 gap-3 max-w-2xl mx-auto">
+                        <button onclick="nextStep(2)" class="p-6 glass border-white/5 hover:border-[#a31223] rounded-2xl text-left transition text-sm">Aggregare manualmente i dati dei vari circuiti di biglietteria</button>
+                        <button onclick="nextStep(2)" class="p-6 glass border-white/5 hover:border-[#a31223] rounded-2xl text-left transition text-sm">Configurare e ottimizzare le campagne pubblicitarie</button>
+                        <button onclick="nextStep(2)" class="p-6 glass border-white/5 hover:border-[#a31223] rounded-2xl text-left transition text-sm">Mancanza di una pagina web veloce per la vendita diretta</button>
+                    </div>
+                </div>
+                <div class="step-content" id="step-2">
+                    <p class="text-xs font-bold text-[#a31223] uppercase mb-4 tracking-widest">Passo 2 di 2</p>
+                    <h4 class="text-xl font-bold mb-8 italic text-glow">Passo finale</h4>
+                    <form class="max-w-md mx-auto space-y-4">
+                        <input type="email" required placeholder="La tua migliore email professionale" class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl focus:border-[#a31223] outline-none text-center">
+                        <button type="submit" class="w-full red-gradient text-white py-5 rounded-2xl font-bold uppercase tracking-widest shadow-xl">Entra in lista</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center opacity-30 text-[10px] tracking-[0.5em] uppercase">
+        specto 2026 // unlock your performance
+    </footer>
+
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('step-' + step).classList.add('active');
+        }
+
+        function simulateAdGeneration(btn) {
+            btn.innerHTML = '<span class="loading-shimmer block w-full h-full italic tracking-tighter">ELABORAZIONE AI...</span>';
+            btn.disabled = true;
+            setTimeout(() => {
+                document.getElementById('ad-content').classList.add('opacity-0', 'scale-95');
+                const success = document.getElementById('ad-success');
+                success.classList.remove('opacity-0', 'translate-y-full');
+                success.classList.add('opacity-100', 'translate-y-0');
+            }, 1800);
+        }
+    </script>
+</body>
+</html>
